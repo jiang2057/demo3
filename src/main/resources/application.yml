@@ -1,0 +1,20 @@
+server:
+  port: 80
+  
+spring:
+  profiles:
+    active: test
+    
+---
+spring:
+  profiles: prod
+  
+server:
+  port: 7070  
+
+---
+spring:
+  profiles: test
+
+server:
+  port: 7071

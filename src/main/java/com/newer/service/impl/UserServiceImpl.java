@@ -22,21 +22,21 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User login(String uname, String upwd) {
-		// ÉèÖÃ²éÑ¯Ìõ¼þ
+		// ï¿½ï¿½ï¿½Ã²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 		Example example = new Example(User.class);
 		Criteria criteria = example.createCriteria();
 		criteria.andEqualTo("uname", uname);
 		criteria.andEqualTo("upwd", upwd);
-		// ²éÑ¯
+		// ï¿½ï¿½Ñ¯
 		User user = this.userDao.selectOneByExample(example);
 		return user;
 	}
 
 	@Override
 	public PageInfo<User> findPages(UserDto userDto) {
-		// 1.ÉèÖÃµ±Ç°Ò³ºÍÃ¿Ò³ÏÔÊ¾µÄÌõÊý
+		// 1.ï¿½ï¿½ï¿½Ãµï¿½Ç°Ò³ï¿½ï¿½Ã¿Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		PageHelper.startPage(userDto.getPage(), userDto.getPageSize());
-		// 2.Ö´ÐÐ²éÑ¯
+		// 2.Ö´ï¿½Ð²ï¿½Ñ¯
 		Example example = new Example(User.class);
 		Criteria criteria = example.createCriteria();
 		if (userDto.getName() != null && !"".equals(userDto.getName())) {
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 			criteria.andEqualTo("sex", userDto.getSex());
 		}
 		List list = this.userDao.selectByExample(example);
-		// 3. ÊµÀý»¯PageInfo¶ÔÏó
+		// 3. Êµï¿½ï¿½ï¿½ï¿½PageInfoï¿½ï¿½ï¿½ï¿½
 		PageInfo pageInfo=new PageInfo(list);
 		return pageInfo;
 	}
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 		return this.userDao.insert(user)>0?true:false;
 	}
 	/**
-	 * ÓÃ»§ÃûÒÑ¾­´æÔÚ£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	 */
 
 	@Override
@@ -66,6 +66,12 @@ public class UserServiceImpl implements UserService {
 		criteria.andEqualTo("uname", name);
 		User user=this.userDao.selectOneByExample(example);
 		return user!=null?true:false;
+	}
+
+	@Override
+	public boolean delete() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

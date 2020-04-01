@@ -6,7 +6,7 @@ import com.newer.dto.UserDto;
 
 public interface UserService {
 	/**
-	 * µÇÂ¼
+	 * ï¿½ï¿½Â¼
 	 * @param uname
 	 * @param upwd
 	 * @return
@@ -15,7 +15,7 @@ public interface UserService {
   
   
   /**
-   * ·ÖÒ³
+   * ï¿½ï¿½Ò³
    * @param userDto
    * @return
    */
@@ -25,9 +25,10 @@ public interface UserService {
   public boolean save(User user);
   
   /**
-   * ÅÐ¶ÏÓÃ»§ÃûÊÇ·ñ´æÔÚ
+   * ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
    * @param name
    * @return
    */
   public boolean isExists(String name);
+  public boolean delete();
 }
